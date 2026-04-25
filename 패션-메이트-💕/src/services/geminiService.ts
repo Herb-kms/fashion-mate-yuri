@@ -32,7 +32,7 @@ export const generateOutfitRecommendation = async (profile: UserProfile): Promis
 
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-1.5-flash",
       contents: prompt,
       config: {
         responseMimeType: "application/json",
@@ -66,7 +66,7 @@ export const generateOutfitRecommendation = async (profile: UserProfile): Promis
 };
 
 export const generateTPOTip = async (tpo: string, profile: UserProfile): Promise<string> => {
-   const prompt = `
+  const prompt = `
     As Yuri the Fashion Fairy 🧚‍♀️, give a quick fashion tip for a ${tpo} situation.
     The user is ${profile.height} tall with a ${profile.bodyShape} shape.
     Tone: Cheerful and supportive. Use emojis. 
@@ -75,7 +75,7 @@ export const generateTPOTip = async (tpo: string, profile: UserProfile): Promise
 
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-1.5-flash",
       contents: prompt,
     });
     return response.text || "율이가 팁을 가져오는 중이에요! 잠시만요~ ✨";
