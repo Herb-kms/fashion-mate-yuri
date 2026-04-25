@@ -32,7 +32,7 @@ export const generateOutfitRecommendation = async (profile: UserProfile): Promis
 
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash",
+      model: "gemini-1.5-flash",
       contents: prompt,
       config: {
         responseMimeType: "application/json",
